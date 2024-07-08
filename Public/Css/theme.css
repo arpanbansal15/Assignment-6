@@ -1,0 +1,106 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+
+
+
+
+body, html {
+    height: 100%;
+    margin: 0;
+    
+    /* Background Image Settings */
+    background: url('path/to/mountain.jpg'); /* Replace 'path/to/mountain.jpg' with the correct path */
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center; /* Center the background image */
+    
+    font-family: 'Raleway', sans-serif; /* Apply the Google Font */
+    color: #333; /* Default text color */
+}
+
+
+.bg-light {
+    background: linear-gradient(45deg, #6a1b9a, #8e24aa); /* Gradient background */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle box shadow */
+}
+
+.navbar-light .navbar-brand {
+    color: #ffd700 !important; /* New Text Colour (Gold) */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4); /* Text shadow */
+    font-family: 'Roboto', sans-serif; /* Apply the Google Font */
+    font-size: 1.5em; /* Increase font size */
+}
+
+.nav-link {
+    color: #007bff; /* New Text Colour (Bootstrap primary blue) */
+    font-family: 'Raleway', sans-serif; /* Apply the Google Font */
+    font-size: 1.1em; /* Slightly larger font size for better readability */
+    transition: color 0.3s, text-shadow 0.3s; /* Smooth transition for hover effects */
+}
+
+.nav-link:hover {
+    color: #ff4500; /* Hover Text Colour (Orange Red) */
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5); /* Text shadow effect on hover */
+}
+
+.btn-primary {
+    background: #007bff; /* Solid background color */
+    border: none; /* Remove border */
+    color: #fff; /* Text color */
+    font-family: 'Raleway', sans-serif; /* Apply the Google Font */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Box shadow (outline) */
+    transition: background 0.3s, box-shadow 0.3s; /* Smooth transition for hover effects */
+}
+
+.btn-primary:hover {
+    background: #0056b3; /* Different color for hover */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Darker box shadow on hover */
+}
+
+/* Gradient Background Example for Button (Optional) */
+.btn-primary-gradient {
+    background: linear-gradient(to right, #007bff, #0056b3); /* Gradient background */
+    border: none; /* Remove border */
+    color: #fff; /* Text color */
+    font-family: 'Raleway', sans-serif; /* Apply the Google Font */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Box shadow (outline) */
+    transition: background 0.3s, box-shadow 0.3s; /* Smooth transition for hover effects */
+}
+
+.btn-primary-gradient:hover {
+    background: linear-gradient(to right, #0056b3, #003d7a); /* Gradient background on hover */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Darker box shadow on hover */
+}
+/* Table Row Styles */
+table tr:nth-child(odd) td {
+    background-color: #f2f2f2; /* Solid background color */
+}
+
+/* Table Cells in Odd Rows with Gradient Background */
+table tr:nth-child(odd) td {
+    background: linear-gradient(to right, #ff7e5f, #feb47b); /* Gradient background */
+    color: #fff; /* Ensure text color contrasts with the gradient */
+}
+
+/* Heading Styles */
+h1, h2, h3, h4, h5, h6 {
+    color: #333;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Anchor Styles */
+a {
+    color: #3498db;
+}
+
+a:hover {
+    color: #2980b9;
+}
+
+/* Fieldset Legend Styles */
+legend {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-weight: bold;
+    color: #333;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
