@@ -39,24 +39,6 @@ module.exports.getAllStudents = function () {
 
         resolve(dataCollection.students);
     });
-}
-
-module.exports.getTAs = function () {
-    return new Promise(function (resolve, reject) {
-        var filteredStudents = [];
-
-        for (let i = 0; i < dataCollection.students.length; i++) {
-            if (dataCollection.students[i].TA == true) {
-                filteredStudents.push(dataCollection.students[i]);
-            }
-        }
-
-        if (filteredStudents.length == 0) {
-            reject("query returned 0 results"); return;
-        }
-
-        resolve(filteredStudents);
-    });
 };
 
 module.exports.getCourses = function () {
@@ -105,14 +87,13 @@ module.exports.getStudentsByCourse = function (course) {
     });
 };
 
-
 module.exports.addStudent = function (studentData) {
     return new Promise((resolve, reject) => {
         fs.readFile(dataFile, 'utf8', (err, data) => {
             if (err) return reject(err);
             let students = JSON.parse(data);
             studentData.studentNum = students.length + 1;
-            students.push(  studentData);
+            students.push(studentData);
             fs.writeFile(dataFile, JSON.stringify(students, null, 2), (err) => {
                 if (err) return reject(err);
                 resolve();
@@ -120,3 +101,14 @@ module.exports.addStudent = function (studentData) {
         });
     });
 }
+
+module.exports.getCourseById = function (id) {
+    return new Promise((resolve, reject) => {
+        const course = dataCollection.courses.find(course => course.courseId == id);
+        if (course) {
+            resolve(course);
+        } else {
+            reject("Query returned 0 results");
+        }
+    });
+};
