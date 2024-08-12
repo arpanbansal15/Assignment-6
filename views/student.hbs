@@ -1,90 +1,41 @@
 <div class="row">
   <main class="col-md-12">
     <br>
-    <h2>{{student.firstName}} {{student.lastName}} - Student: {{student.studentNum}}</h2>
+    <h2>Students</h2>
+    <a href="/students/add" class="btn btn-success float-end">Add New Student</a>
     <hr />
-    <form method="post" action="/student/update">
-      <input type="hidden" name="studentNum" value="{{student.studentNum}}" />
-      <fieldset>
-        <legend>Personal Information</legend>
-        <div class="row">
-          <div class="col-md-6">
-            <div class="form-group">
-              <label>First Name:</label>
-              <input class="form-control" name="firstName" type="text" value="{{student.firstName}}" />
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="form-group">
-              <label>Last Name:</label>
-              <input class="form-control" name="lastName" type="text" value="{{student.lastName}}" />
-            </div>
-          </div>
-        </div>
-      </fieldset>
-      <fieldset>
-        <legend>Contact Information</legend>
-        <div class="row">
-          <div class="col-md-6">
-            <div class="form-group">
-              <label>Email:</label>
-              <input class="form-control" name="email" type="email" value="{{student.email}}" />
-            </div>
-          </div>
-        </div>
-      </fieldset>
-      <fieldset>
-        <legend>Address</legend>
-        <div class="row">
-          <div class="col-md-6">
-            <div class="form-group">
-              <label>Street:</label>
-              <input class="form-control" name="addressStreet" type="text" value="{{student.addressStreet}}" />
-            </div>
-          </div>
-          <div class="col-md-3">
-            <div class="form-group">
-              <label>City:</label>
-              <input class="form-control" name="addressCity" type="text" value="{{student.addressCity}}" />
-            </div>
-          </div>
-          <div class="col-md-3">
-            <div class="form-group">
-              <label>Province:</label>
-              <input class="form-control" name="addressProvince" type="text" value="{{student.addressProvince}}" />
-            </div>
-          </div>
-        </div>
-      </fieldset>
-      <fieldset>
-        <legend>Status</legend>
-        <div class="form-group">
-          <div class="form-check">
-            <input class="form-check-input" type="checkbox" name="TA" {{#if student.TA}}checked{{/if}} />
-            <label class="form-check-label">TA</label>
-          </div>
-          <div class="form-check">
-            <input class="form-check-input" type="radio" name="status" value="Full Time" {{#equal student.status "Full Time"}}checked{{/equal}} />
-            <label class="form-check-label">Full Time</label>
-          </div>
-          <div class="form-check">
-            <input class="form-check-input" type="radio" name="status" value="Part Time" {{#equal student.status "Part Time"}}checked{{/equal}} />
-            <label class="form-check-label">Part Time</label>
-          </div>
-        </div>
-      </fieldset>
-      <fieldset>
-        <legend>Course</legend>
-        <div class="form-group">
-          <select class="form-control" name="course">
-            {{#each ../courses}}
-            <option value="{{this.courseId}}" {{#equal ../student.course this.courseId}}selected{{/equal}}>{{this.courseName}}</option>
-            {{/each}}
-          </select>
-        </div>
-      </fieldset>
-      <hr />
-      <input type="submit" class="btn btn-primary float-right" value="Update Student" /><br /><br /><br />
-    </form>
+    {{#if students.length}}
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Student Number</th>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>Email</th>
+          <th>Status</th>
+          <th>Course</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each students}}
+        <tr>
+          <td>{{studentNum}}</td>
+          <td>{{firstName}}</td>
+          <td>{{lastName}}</td>
+          <td>{{email}}</td>
+          <td>{{status}}</td>
+          <td>{{course}}</td>
+          <td>
+            <a href="/student/{{studentNum}}" class="btn btn-info btn-sm">View</a>
+            <a href="/student/delete/{{studentNum}}" class="btn btn-danger btn-sm">Remove</a>
+          </td>
+        </tr>
+        {{/each}}
+      </tbody>
+    </table>
+    {{else}}
+    <p>No students found.</p>
+    {{/if}}
   </main>
 </div>
